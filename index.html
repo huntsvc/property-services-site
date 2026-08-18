@@ -137,20 +137,52 @@
     <p>© 2026 Hunt’s Property Services. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Replace these two placeholders with your real business links.
-    const links = {
-      facebook: "https://www.facebook.com/people/Hunts-Property-Services/61592772776829/",
-      google: "https://share.google/dgwtXWrdn5KFa3SGN"
-    };
-    ["facebook-top","facebook-contact"].forEach(id => {
-      const el = document.getElementById(id);
-      el.href = links.facebook;
-    });
-    ["google-top","google-contact"].forEach(id => {
-      const el = document.getElementById(id);
-      el.href = links.google;
-    });
-  </script>
+ <script>
+  // Facebook and Google links
+  const links = {
+    facebook: "https://www.facebook.com/people/Hunts-Property-Services/61592772776829/",
+    google: "https://share.google/dgwtXWrdn5KFa3SGN"
+  };
+
+  ["facebook-top","facebook-contact"].forEach(id => {
+    const el = document.getElementById(id);
+    el.href = links.facebook;
+  });
+
+  ["google-top","google-contact"].forEach(id => {
+    const el = document.getElementById(id);
+    el.href = links.google;
+  });
+
+  // Phone number formatting
+  const phoneInput = document.getElementById("phone");
+  const form = document.querySelector(".message-card form");
+
+  phoneInput.addEventListener("input", function () {
+    let digits = this.value.replace(/\D/g, "");
+
+    // Keep only the first 10 digits
+    digits = digits.substring(0, 10);
+
+    if (digits.length > 6) {
+      this.value = `(${digits.substring(0, 3)}) ${digits.substring(3, 6)}-${digits.substring(6)}`;
+    } else if (digits.length > 3) {
+      this.value = `(${digits.substring(0, 3)}) ${digits.substring(3)}`;
+    } else if (digits.length > 0) {
+      this.value = `(${digits}`;
+    } else {
+      this.value = "";
+    }
+  });
+
+  // Convert the phone number to E.164 format before sending to Forminit
+  form.addEventListener("submit", function () {
+    const digits = phoneInput.value.replace(/\D/g, "");
+
+    if (digits.length === 10) {
+      phoneInput.value = "+1" + digits;
+    }
+  });
+</script>
 </body>
 </html>
