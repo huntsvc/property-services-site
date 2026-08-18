@@ -48,13 +48,23 @@
           <p>Have a question? Contact us directly through the website.</p>
           <!-- Replace YOUR_FORMINIT_ID with the form ID from your FORMINIT account. -->
           <form action="https://forminit.com/f/wm2c1ri8oyb" method="POST">
-            <label>Name<input name="fi-sender-fullName" type="text" placeholder="Your Name" required></label>
-            <label>Email<input name="fi-sender-email" type="email" placeholder="Your Email" required></label>
-            <label>Phone<input name="fi-sender-phone" type="tel" placeholder="Your Phone"></label>
-            <label>Message<textarea name="fi-text-message" placeholder="How can we help you?" required></textarea></label>
-            <input type="hidden" name="fi-subject" value="New Hunt’s Property Services website message">
-            <button type="submit">Send Message</button>
-          </form>
+  <label>Name<input name="fi-sender-fullName" type="text" placeholder="Your Name" required></label>
+  <label>Email<input name="fi-sender-email" type="email" placeholder="Your Email" required></label>
+
+  <label>Phone
+    <input
+      id="phone"
+      name="fi-sender-phone"
+      type="tel"
+      placeholder="(941) 555-1234"
+      maxlength="14"
+    >
+  </label>
+
+  <label>Message<textarea name="fi-text-message" placeholder="How can we help you?" required></textarea></label>
+  <input type="hidden" name="fi-subject" value="New Hunt’s Property Services website message">
+  <button type="submit">Send Message</button>
+</form>
           <small>Messages will be sent to your business email after the form is connected.</small>
         </div>
       </div>
